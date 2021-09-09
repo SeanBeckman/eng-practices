@@ -19,6 +19,8 @@ Term Clarification:
     Other organizations often call this a "change", "patch", or "pull-request".
 *   **LGTM**: Means "Looks Good to Me". It is what a code reviewer says when
     approving a CL.
+*   **NIT**: Means "nitpick" which is where a reviewer is making a comment on a CL
+    but it is only meant as a mild suggestion rather than a request for change.
 
 ## License
 
