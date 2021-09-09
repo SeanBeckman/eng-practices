@@ -78,12 +78,6 @@ response at a reasonable break point in your work.)
 certain their "LGTM" means "this code meets [our standards](standard.md)."**
 However, individual responses should still ideally be [fast](#fast).
 
-## Cross-Time-Zone Reviews {#tz}
-
-When dealing with time zone differences, try to get back to the author when they
-are still in the office. If they have already gone home, then try to make sure
-your review is done before they get back to the office the next day.
-
 ## LGTM With Comments {#lgtm-with-comments}
 
 In order to speed up code reviews, there are certain situations in which a
@@ -97,10 +91,6 @@ comments on the CL. This is done when either:
 
 The reviewer should specify which of these options they intend, if it is not
 otherwise clear.
-
-LGTM With Comments is especially worth considering when the developer and
-reviewer are in different time zones and otherwise the developer would be
-waiting for a whole day just to get "LGTM, Approval."
 
 ## Large CLs {#large}
 

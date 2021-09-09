@@ -33,16 +33,6 @@ you're just reading the code. For changes like that, you can have the developer
 give you a demo of the functionality if it's too inconvenient to patch in the CL
 and try it yourself.
 
-Another time when it's particularly important to think about functionality
-during a code review is if there is some sort of **parallel programming** going
-on in the CL that could theoretically cause deadlocks or race conditions. These
-sorts of issues are very hard to detect by just running the code and usually
-need somebody (both the developer and the reviewer) to think through them
-carefully to be sure that problems aren't being introduced. (Note that this is
-also a good reason not to use concurrency models where race conditions or
-deadlocks are possible—it can make it very complex to do code reviews or
-understand the code.)
-
 ## Complexity
 
 Is the CL more complex than it should be? Check this at every level of the
@@ -68,8 +58,7 @@ same CL as the production code unless the CL is handling an
 [emergency](../emergencies.md).
 
 Make sure that the tests in the CL are correct, sensible, and useful. Tests do
-not test themselves, and we rarely write tests for our tests—a human must ensure
-that tests are valid.
+not test themselves.
 
 Will the tests actually fail when the code is broken? If the code changes
 beneath them, will they start producing false positives? Does each test make
@@ -106,10 +95,6 @@ should be used, and how it behaves when used.
 
 ## Style
 
-We have [style guides](http://google.github.io/styleguide/) at Google for all
-of our major languages, and even for most of the minor languages. Make sure the
-CL follows the appropriate style guides.
-
 If you want to improve some style point that isn't in the style guide, prefix
 your comment with "Nit:" to let the developer know that it's a nitpick that you
 think would improve the code but isn't mandatory. Don't block CLs from being
@@ -140,16 +125,6 @@ existing code.
 Either way, encourage the author to file a bug and add a TODO for cleaning up
 existing code.
 
-## Documentation
-
-If a CL changes how users build, test, interact with, or release code, check to
-see that it also updates associated documentation, including
-READMEs, g3doc pages, and any generated
-reference docs. If the CL deletes or deprecates code, consider whether the
-documentation should also be deleted.
-If documentation is
-missing, ask for it.
-
 ## Every Line {#every-line}
 
 In the general case, look at *every* line of code that you have been assigned to
@@ -162,34 +137,10 @@ you *understand* what all the code is doing.
 
 If it's too hard for you to read the code and this is slowing down the review,
 then you should let the developer know that
-and wait for them to clarify it before you try to review it. At Google, we hire
-great software engineers, and you are one of them. If you can't understand the
+and wait for them to clarify it before you try to review it. If you can't understand the
 code, it's very likely that other developers won't either. So you're also
 helping future developers understand this code, when you ask the developer to
 clarify it.
-
-If you understand the code but you don't feel qualified to do some part of the
-review, [make sure there is a reviewer](#every-line-exceptions) on the CL who is
-qualified, particularly for complex issues such as security, concurrency,
-accessibility, internationalization, etc.
-
-### Exceptions {#every-line-exceptions}
-
-What if it doesn't make sense for you to review every line? For example, you are
-one of multiple reviewers on a CL and may be asked:
-
-*   To review only certain files that are part of a larger change.
-*   To review only certain aspects of the CL, such as the high-level design,
-    security implications, etc.
-
-In these cases, note in a comment which parts you reviewed. Prefer giving
-[LGTM with comments](speed.md#lgtm-with-comments)
-.
-
-If you instead wish to grant LGTM after confirming that other reviewers have
-reviewed other parts of the CL, note this explicitly in a comment to set
-expectations. Aim to [respond quickly](speed.md#responses) once the CL has
-reached the desired state.
 
 ## Context
 
